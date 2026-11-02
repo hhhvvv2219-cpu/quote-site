@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сайт-цитата</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { min-height:100vh; display:flex; align-items:center; justify-content:center; background:#f5f6f8; font-family: Georgia, 'Times New Roman', serif; padding:24px; }
+  .card { max-width:640px; background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:56px 48px; box-shadow:0 8px 30px rgba(0,0,0,.06); text-align:center; }
+  .mark { font-size:64px; line-height:1; color:#4d6bfe; font-family:Georgia,serif; }
+  blockquote { font-size:26px; line-height:1.5; color:#0d0d0d; margin:16px 0 24px; font-style:italic; }
+  .author { font-size:16px; color:#666; letter-spacing:.5px; }
+  button { margin-top:36px; background:#4d6bfe; color:#fff; border:none; border-radius:10px; padding:12px 24px; font-size:15px; cursor:pointer; transition:background .2s; }
+  button:hover { background:#3a57e0; }
+  footer { margin-top:28px; font-size:13px; color:#999; font-family:-apple-system,Segoe UI,sans-serif; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="mark">&#8220;</div>
+    <blockquote id="quote">Мы то, что мы делаем постоянно. Совершенство — не действие, а привычка.</blockquote>
+    <div class="author" id="author">— Аристотель</div>
+    <button onclick="randomQuote()">Другая цитата</button>
+    <footer>Сделано с DeepControl &middot; GitHub Pages</footer>
+  </main>
+<script>
+const quotes = [
+  { text: 'Мы то, что мы делаем постоянно. Совершенство — не действие, а привычка.', author: 'Аристотель' },
+  { text: 'Воображение важнее знания. Знание ограничено, а воображение охватывает весь мир.', author: 'Альберт Эйнштейн' },
+  { text: 'Единственный способ делать великую работу — любить то, что ты делаешь.', author: 'Стив Джобс' },
+  { text: 'Сложнее всего начать действовать, всё остальное зависит только от упорства.', author: 'Амелия Эрхарт' },
+  { text: 'Жизнь — это то, что происходит с тобой, пока ты строишь другие планы.', author: 'Джон Леннон' }
+];
+function randomQuote() {
+  const q = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById('quote').textContent = q.text;
+  document.getElementById('author').textContent = '— ' + q.author;
+}
+</script>
+</body>
+</html>
